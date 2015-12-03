@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script>
+function PickOne()
+{
+   var f = document.parm;
+   var allInput = f.InArea.value;
+   var a = allInput.split("\n");
+   var nStrings = a.length;
+   while (a[nStrings-1] == "") nStrings = nStrings - 1;
+   var n1 = Math.random() * nStrings;
+   var nSelect = Math.floor(n1);
+   f.SelectedOne.value = a[nSelect];
+}
+  var looper;
+var degrees = 0;
+ var st= Math.random()	* 1080;
+function rotateAnimation(a){
+	var elem = document.getElementById(a);
+	elem.style.transform = "rotate("+degrees+"deg)";
+	looper = setTimeout('rotateAnimation(\''+a+'\')');
+	degrees= degrees +3;
+      if(degrees > st){
+		degrees= degrees -3;
+	}}
+  
+</script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+           var f = document.parm;
+   var allInput = f.InArea.value;
+   var a = allInput.split("\n");
+ var data = new google.visualization.DataTable();
+data.addColumn('string', 'Task');
+data.addColumn('number', 'Hours per Day');
+data.addRows([
+  ['do', 1],
+  ['you', 1],
+  ['want', 1],
+  ['to', 1],
+  ['eat?', 1],
+  ['What', 1]
+]);
+      var options = {
+        legend: 'none',
+        pieSliceText: 'label',
+      };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+</head>
+<body>
+<div id="piechart"></div>
+<img id="arrow" src="arrow.png" alt="cog1" width="70" height="100" style="position:absolute; Top:60px; Right:125px">
+<script>rotateAnimation("arrow");</script>
+<form NAME=parm>
+<table>
+<tr><td colspan=2><textarea NAME=InArea rows=5 cols=40></textarea> </td></tr>
+<tr></tr> <tr></tr> <tr></tr> <tr></tr> <tr></tr>
+  <tr align= left><td><INPUT TYPE=button value="Let God Choose for me!" onClick="PickOne()"></td>
+<td align= right> <INPUT TYPE=reset> </td> </tr>
+<tr></tr> <tr></tr> <tr></tr> <tr></tr> <tr></tr>
+<tr align= center><td colspan=2> The God Chose~~~ </td></tr>
+<tr align= center><td colspan=2><textarea  NAME=SelectedOne rows=1 cols=20 readOnly=true style="background-color:#FFFFFF"> </textarea></td></tr>
+</table>
+<p align= center>
+<a href="https://www.mcdelivery.com.tw/tw/">
+<img border="0" alt="Mc" src="mc.png" width="50" height="50">
+<a href="https://www2.kfcorder.com.tw">
+<img border="0" alt="kfc" src="kfc.png" width="50" height="50">
+<a href="https://www.pizzahut.com.tw/order/">
+<img border="0" alt="pizza" src="pizza.png" width="50" height="50">
+<a href="http://weborder.mos.com.tw/Modules/Web/WOO01.aspx">
+<img border="0" alt="mos" src="mos.png" width="50" height="50">
+</a>
+  </a>
+  </a>
+  </a>
+  </p>
+</body>  
+</html>
